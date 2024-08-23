@@ -16,7 +16,6 @@ jobs:
         with:
           # Fetch full depth, otherwise the last step overwrites the last commit's parent, essentially removing the graph.
           fetch-depth: 0
-          token: ${{ secrets.BOT_PAT }}
           ref: ${{ github.head_ref }}
 
       - name: Bump version if needed
