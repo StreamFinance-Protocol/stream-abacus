@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 @Suppress("PropertyName")
 internal class HistoricalFundingsMock {

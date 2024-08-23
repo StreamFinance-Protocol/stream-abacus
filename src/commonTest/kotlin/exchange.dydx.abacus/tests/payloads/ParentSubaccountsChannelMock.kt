@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 import kollections.JsExport
 import kotlinx.serialization.Serializable

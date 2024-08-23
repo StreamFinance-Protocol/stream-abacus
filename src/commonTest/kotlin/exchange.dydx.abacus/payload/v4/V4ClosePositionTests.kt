@@ -1,9 +1,9 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.state.model.ClosePositionInputField
-import exchange.dydx.abacus.state.model.closePosition
-import exchange.dydx.abacus.tests.extensions.log
-import exchange.dydx.abacus.utils.ServerTime
+import exchange.stream.abacus.state.model.ClosePositionInputField
+import exchange.stream.abacus.state.model.closePosition
+import exchange.stream.abacus.tests.extensions.log
+import exchange.stream.abacus.utils.ServerTime
 import kotlin.test.Test
 
 class V4ClosePositionTests : V4BaseTests() {

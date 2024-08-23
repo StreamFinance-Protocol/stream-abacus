@@ -1,16 +1,16 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.output.input.TransferType
-import exchange.dydx.abacus.responses.ParsingError
-import exchange.dydx.abacus.responses.ParsingException
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.changes.StateChanges
-import exchange.dydx.abacus.state.model.TradingStateMachine
-import exchange.dydx.abacus.state.model.TransferInputField
-import exchange.dydx.abacus.state.model.onChainWithdrawalCapacity
-import exchange.dydx.abacus.state.model.onChainWithdrawalGating
-import exchange.dydx.abacus.state.model.transfer
-import exchange.dydx.abacus.tests.extensions.loadAccounts
+import exchange.stream.abacus.output.input.TransferType
+import exchange.stream.abacus.responses.ParsingError
+import exchange.stream.abacus.responses.ParsingException
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.changes.StateChanges
+import exchange.stream.abacus.state.model.TradingStateMachine
+import exchange.stream.abacus.state.model.TransferInputField
+import exchange.stream.abacus.state.model.onChainWithdrawalCapacity
+import exchange.stream.abacus.state.model.onChainWithdrawalGating
+import exchange.stream.abacus.state.model.transfer
+import exchange.stream.abacus.tests.extensions.loadAccounts
 import kollections.iListOf
 import kotlin.test.Test
 

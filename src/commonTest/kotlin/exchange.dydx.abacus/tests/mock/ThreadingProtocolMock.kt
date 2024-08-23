@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.tests.mock
+package exchange.stream.abacus.tests.mock
 
-import exchange.dydx.abacus.protocols.ThreadingProtocol
-import exchange.dydx.abacus.protocols.ThreadingType
+import exchange.stream.abacus.protocols.ThreadingProtocol
+import exchange.stream.abacus.protocols.ThreadingType
 
 class ThreadingProtocolMock : ThreadingProtocol {
     var asyncCallCount = 0

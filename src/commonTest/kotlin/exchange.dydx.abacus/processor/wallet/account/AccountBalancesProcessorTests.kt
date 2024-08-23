@@ -1,8 +1,8 @@
-package exchange.dydx.abacus.processor.wallet.account
+package exchange.stream.abacus.processor.wallet.account
 
 import com.ionspin.kotlin.bignum.decimal.toBigDecimal
-import exchange.dydx.abacus.state.internalstate.InternalAccountBalanceState
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.state.internalstate.InternalAccountBalanceState
+import exchange.stream.abacus.utils.Parser
 import indexer.models.chain.OnChainAccountBalanceObject
 import kotlin.test.Test
 import kotlin.test.assertTrue

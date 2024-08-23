@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 import kollections.JsExport
 import kotlinx.serialization.Serializable
@@ -1173,7 +1173,6 @@ internal class AccountsChannelMock {
 
     internal val v4accountsReceived = """
         {
-            "totalTradingRewards": "2800.8",
         	"subaccounts": [{
         		"address": "cosmos1fq8q55896ljfjj7v3x0qd0z3sr78wmes940uhm",
         		"subaccountNumber": 0,
@@ -1267,7 +1266,6 @@ internal class AccountsChannelMock {
 
     internal val v4accountsReceivedWithPositions = """
         {
-            "totalTradingRewards": "2800.8",
         	"subaccounts": [{
         		"address": "cosmos1d67qczf2dz0n30qau2wg893fhpdeekmfu44p4f",
         		"subaccountNumber": 0,
@@ -1787,12 +1785,7 @@ internal class AccountsChannelMock {
                     "reduceOnly":false,
                     "goodTilBlock":"5837"
                  }
-              ],
-              "tradingReward": {
-                "tradingReward": "0.02",
-                "createdAtHeight": "2422",
-                "createdAt": "2023-08-09T20:00:00.000Z"
-              }
+              ]
            }
         }
     """.trimIndent()
@@ -1821,12 +1814,7 @@ internal class AccountsChannelMock {
                     "size":"9.97458676",
                     "maxSize":"9.97458676"
                  }
-              ],
-                "tradingReward": {
-                    "tradingReward": "0.01",
-                    "createdAtHeight": "2501",
-                    "createdAt": "2023-08-09T20:11:00.000Z"
-                }
+              ]
            }
         }
     """.trimIndent()
@@ -2324,7 +2312,6 @@ internal class AccountsChannelMock {
 
     internal val v4_accounts_received_for_calculation = """
         {
-            "totalTradingRewards": "2800.8",
             "subaccounts": [{
                  "address":"cosmos1jtpspgllck9z4ghkqhupum35q55xt99sg3guxn",
                  "subaccountNumber":0,
@@ -2351,26 +2338,13 @@ internal class AccountsChannelMock {
                        "assetId":"0"
                     }
                 },
-        		"marginEnabled": true,
-                "tradingRewards": [
-                    {
-                        "tradingReward": "0.02",
-                        "createdAtHeight": "2422",
-                        "createdAt": "2023-08-09T20:00:00.000Z"
-                    },
-                    {
-                        "tradingReward": "0.01",
-                        "createdAtHeight": "2500",
-                        "createdAt": "2023-08-09T20:10:00.000Z"
-                    }
-                ]
+        		"marginEnabled": true
             }]
         }
     """.trimIndent()
 
     internal val v4_accounts_received_for_calculation_2 = """
     {
-        "totalTradingRewards": "2800.8",
         "subaccounts": [{
              "address":"cosmos1jtpspgllck9z4ghkqhupum35q55xt99sg3guxn",
              "subaccountNumber":0,
@@ -2410,19 +2384,7 @@ internal class AccountsChannelMock {
                    "assetId":"0"
                 }
             },
-            "marginEnabled": true,
-            "tradingRewards": [
-                {
-                    "tradingReward": "0.02",
-                    "createdAtHeight": "2422",
-                    "createdAt": "2023-08-09T20:00:00.000Z"
-                },
-                {
-                    "tradingReward": "0.01",
-                    "createdAtHeight": "2500",
-                    "createdAt": "2023-08-09T20:10:00.000Z"
-                }
-            ]
+            "marginEnabled": true
         }]
     }
     """.trimIndent()
@@ -2461,14 +2423,7 @@ internal class AccountsChannelMock {
                        "assetId":"0"
                     }
                 },
-                 "marginEnabled":true,
-                "tradingRewards": [
-                    {
-                        "tradingReward": "0.01",
-                        "createdAtHeight": "2501",
-                        "createdAt": "2023-08-09T20:11:00.000Z"
-                    }
-                ]
+                 "marginEnabled":true
               }
            }
         }

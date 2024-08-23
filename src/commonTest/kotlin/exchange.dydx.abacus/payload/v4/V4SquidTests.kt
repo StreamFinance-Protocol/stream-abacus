@@ -1,13 +1,13 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.state.model.TransferInputField
-import exchange.dydx.abacus.state.model.routerChains
-import exchange.dydx.abacus.state.model.routerStatus
-import exchange.dydx.abacus.state.model.routerTokens
-import exchange.dydx.abacus.state.model.squidRoute
-import exchange.dydx.abacus.state.model.squidRouteV2
-import exchange.dydx.abacus.state.model.squidV2SdkInfo
-import exchange.dydx.abacus.state.model.transfer
+import exchange.stream.abacus.state.model.TransferInputField
+import exchange.stream.abacus.state.model.routerChains
+import exchange.stream.abacus.state.model.routerStatus
+import exchange.stream.abacus.state.model.routerTokens
+import exchange.stream.abacus.state.model.squidRoute
+import exchange.stream.abacus.state.model.squidRouteV2
+import exchange.stream.abacus.state.model.squidV2SdkInfo
+import exchange.stream.abacus.state.model.transfer
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull

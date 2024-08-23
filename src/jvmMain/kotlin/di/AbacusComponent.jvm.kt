@@ -1,11 +1,11 @@
-package exchange.dydx.abacus.di
+package exchange.stream.abacus.di
 
-import exchange.dydx.abacus.protocols.DataNotificationProtocol
-import exchange.dydx.abacus.protocols.PresentationProtocol
-import exchange.dydx.abacus.protocols.StateNotificationProtocol
-import exchange.dydx.abacus.state.v2.supervisor.AppConfigsV2
-import exchange.dydx.abacus.utils.IOImplementations
-import exchange.dydx.abacus.utils.UIImplementations
+import exchange.stream.abacus.protocols.DataNotificationProtocol
+import exchange.stream.abacus.protocols.PresentationProtocol
+import exchange.stream.abacus.protocols.StateNotificationProtocol
+import exchange.stream.abacus.state.v2.supervisor.AppConfigsV2
+import exchange.stream.abacus.utils.IOImplementations
+import exchange.stream.abacus.utils.UIImplementations
 
 internal actual fun createAbacusComponent(
     deploymentUri: DeploymentUri,

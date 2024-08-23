@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.utils.ServerTime
+import exchange.stream.abacus.utils.ServerTime
 import kotlin.test.Test
 
 class V4WalletTests : V4BaseTests() {

@@ -1,8 +1,8 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.app.adaptors.AbUrl
-import exchange.dydx.abacus.utils.ServerTime
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.app.adaptors.AbUrl
+import exchange.stream.abacus.utils.ServerTime
 import kotlin.test.Test
 
 class V4SubaccountTests : V4BaseTests() {
@@ -45,9 +45,6 @@ class V4SubaccountTests : V4BaseTests() {
                 {
                    "wallet":{
                       "account":{
-                         "tradingRewards":{
-                            "total":36059.41
-                         },
                          "subaccounts":{
                             "0":{
                                "equity":{
@@ -82,9 +79,6 @@ class V4SubaccountTests : V4BaseTests() {
                 {
                     "wallet": {
                         "account": {
-                            "tradingRewards": {
-                                "total": 36059.41
-                            },
                             "subaccounts": {
                                 "0": {
                                     "equity": {
@@ -123,9 +117,6 @@ class V4SubaccountTests : V4BaseTests() {
                 {
                    "wallet":{
                       "account":{
-                         "tradingRewards":{
-                            "total":36059.41
-                         },
                          "subaccounts":{
                             "0":{
                                "equity":{
@@ -2086,9 +2077,6 @@ class V4SubaccountTests : V4BaseTests() {
                 {
                     "wallet": {
                         "account": {
-                            "tradingRewards": {
-                                "total": 36059.41
-                            },
                             "subaccounts": {
                                 "0": {
                                     "equity": {

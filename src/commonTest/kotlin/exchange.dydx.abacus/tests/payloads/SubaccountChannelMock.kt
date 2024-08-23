@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 import kollections.JsExport
 import kotlinx.serialization.Serializable
@@ -741,8 +741,7 @@ internal class SubaccountsChannelMock {
                     },
                     "marginEnabled": true
                 }
-            ],
-            "totalTradingRewards": "36059.407411800692695451"
+            ]
         }
     """.trimIndent()
     internal val subscribed = """
@@ -7660,13 +7659,6 @@ internal class SubaccountsChannelMock {
               ]
             },
             {
-              "tradingReward": {
-                "tradingReward": "0.120213656910332891",
-                "createdAtHeight": "14972965",
-                "createdAt": "2024-05-06T18:41:23.452Z"
-              }
-            },
-            {
               "perpetualPositions": [
                 {
                   "address": "dydx18p7nz5rqezkyscdz9pv9rchnsesjyjjyfe92t3",
@@ -9467,13 +9459,6 @@ internal class SubaccountsChannelMock {
                 "clientMetadata": "0"
               }
             ]
-          },
-          {
-            "tradingReward": {
-              "tradingReward": "0.009290434492556074",
-              "createdAtHeight": "14972972",
-              "createdAt": "2024-05-06T18:41:30.747Z"
-            }
           },
           {
             "perpetualPositions": [

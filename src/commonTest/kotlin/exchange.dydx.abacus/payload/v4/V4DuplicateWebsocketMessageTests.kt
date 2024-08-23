@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.tests.extensions.loadv4TradesChanged
+import exchange.stream.abacus.tests.extensions.loadv4TradesChanged
 import kotlin.test.Test
 
 class V4DuplicateWebsocketMessageTests : V4BaseTests() {
@@ -23,9 +23,6 @@ class V4DuplicateWebsocketMessageTests : V4BaseTests() {
                 {
                     "wallet": {
                         "account": {
-                            "tradingRewards": {
-                                "total": 2800.8
-                            },
                             "subaccounts": {
                                 "0": {
                                     "equity": {

@@ -1,8 +1,8 @@
-package exchange.dydx.abacus.validation
+package exchange.stream.abacus.validation
 
-import exchange.dydx.abacus.payload.v4.V4BaseTests
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.model.trade
+import exchange.stream.abacus.payload.v4.V4BaseTests
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.model.trade
 
 open class ValidationsTests : V4BaseTests() {
     override fun setup() {

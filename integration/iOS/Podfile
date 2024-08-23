@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 def abacus_pods
   pod 'abacus', :path => '../..'
-  #pod 'abacus', :git => 'https://github.com/dydxprotocol/v4-abacus.git'
+  #pod 'abacus', :git => 'https://github.com/StreamFinance-Protocol/stream-abacus.git'
 end
 
 

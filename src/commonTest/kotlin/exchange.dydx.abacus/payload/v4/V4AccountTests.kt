@@ -1,28 +1,24 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
 import com.ionspin.kotlin.bignum.decimal.toBigDecimal
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.app.adaptors.AbUrl
-import exchange.dydx.abacus.state.changes.Changes
-import exchange.dydx.abacus.state.internalstate.InternalAccountBalanceState
-import exchange.dydx.abacus.state.manager.BlockAndTime
-import exchange.dydx.abacus.state.manager.notification.NotificationsProvider
-import exchange.dydx.abacus.state.model.historicalTradingRewards
-import exchange.dydx.abacus.state.model.onChainAccountBalances
-import exchange.dydx.abacus.state.model.onChainDelegations
-import exchange.dydx.abacus.state.model.updateHeight
-import exchange.dydx.abacus.tests.extensions.loadv4SubaccountSubscribed
-import exchange.dydx.abacus.tests.extensions.loadv4SubaccountWithOrdersAndFillsChanged
-import exchange.dydx.abacus.tests.extensions.loadv4SubaccountsWithPositions
-import exchange.dydx.abacus.tests.extensions.log
-import exchange.dydx.abacus.utils.JsonEncoder
-import exchange.dydx.abacus.utils.Parser
-import exchange.dydx.abacus.utils.ServerTime
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.app.adaptors.AbUrl
+import exchange.stream.abacus.state.internalstate.InternalAccountBalanceState
+import exchange.stream.abacus.state.manager.BlockAndTime
+import exchange.stream.abacus.state.manager.notification.NotificationsProvider
+import exchange.stream.abacus.state.model.onChainAccountBalances
+import exchange.stream.abacus.state.model.updateHeight
+import exchange.stream.abacus.tests.extensions.loadv4SubaccountSubscribed
+import exchange.stream.abacus.tests.extensions.loadv4SubaccountWithOrdersAndFillsChanged
+import exchange.stream.abacus.tests.extensions.loadv4SubaccountsWithPositions
+import exchange.stream.abacus.tests.extensions.log
+import exchange.stream.abacus.utils.JsonEncoder
+import exchange.stream.abacus.utils.Parser
+import exchange.stream.abacus.utils.ServerTime
 import kotlinx.datetime.Clock
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
 
 class V4AccountTests : V4BaseTests() {
     @Test
@@ -65,8 +61,6 @@ class V4AccountTests : V4BaseTests() {
         testUserFeeTier()
 
         testUserStats()
-
-        testAccountHistoricalTradingRewards()
     }
 
     private fun testSubaccountsReceived() {
@@ -78,9 +72,6 @@ class V4AccountTests : V4BaseTests() {
             {
                 "wallet": {
                     "account": {
-                        "tradingRewards": {
-                            "total": 2800.8
-                        },
                         "subaccounts": {
                             "0": {
                                 "equity": {
@@ -110,15 +101,6 @@ class V4AccountTests : V4BaseTests() {
                 {
                     "wallet": {
                         "account": {
-                            "tradingRewards": {
-                                "total": 2800.8,
-                                "blockRewards": [
-                                    {
-                                        "tradingReward": "0.02",
-                                        "createdAtHeight": "2422"
-                                    }
-                                ]
-                            },
                             "subaccounts": {
                                 "0": {
                                     "equity": {
@@ -444,18 +426,6 @@ class V4AccountTests : V4BaseTests() {
                 {
                     "wallet": {
                         "account": {
-                            "tradingRewards": {
-                                "blockRewards": [
-                                    {
-                                        "tradingReward": "0.02",
-                                        "createdAtHeight": "2422"
-                                    },
-                                    {
-                                        "tradingReward": "0.01",
-                                        "createdAtHeight": "2501"
-                                    }
-                                ]
-                            },
                             "subaccounts": {
                                 "0": {
                                     "equity": {
@@ -1156,10 +1126,6 @@ class V4AccountTests : V4BaseTests() {
                                      "denom": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
                                       "amount": "110"
                                 },
-                                "dv4tnt": {
-                                     "denom": "dv4tnt",
-                                     "amount": "1220"
-                                }
                             }
                         }
                     }
@@ -1169,241 +1135,5 @@ class V4AccountTests : V4BaseTests() {
                 },
             )
         }
-    }
-
-    @Test
-    fun testAccountStakingBalances() {
-        if (perp.staticTyping) {
-            val changes = perp.onChainDelegations(mock.v4OnChainMock.account_delegations)
-            assertEquals(perp.internalState.wallet.account.stakingBalances?.size, 1)
-            assertEquals(
-                perp.internalState.wallet.account.stakingBalances?.get("dv4tnt"),
-                InternalAccountBalanceState(
-                    "dv4tnt",
-                    2001000.0.toBigDecimal(),
-                ),
-            )
-            assertTrue { changes.changes.contains(Changes.accountBalances) }
-        } else {
-            test(
-                {
-                    val changes = perp.onChainDelegations(mock.v4OnChainMock.account_delegations)
-                    perp.update(changes)
-                    return@test StateResponse(perp.state, changes)
-                },
-                """
-                {
-                    "wallet": {
-                        "account": {
-                            "stakingBalances": {
-                                "dv4tnt": {
-                                     "denom": "dv4tnt",
-                                     "amount": "2001000"
-                                }
-                            }
-                        }
-                    }
-                }
-                """.trimIndent(),
-                {
-                },
-            )
-        }
-    }
-
-    @Test
-    fun testAccountHistoricalTradingRewards() {
-        reset()
-        setup()
-        test(
-            {
-                val changes = perp.historicalTradingRewards(
-                    mock.historicalTradingRewards.weeklyCall,
-                    "WEEKLY",
-                )
-                perp.update(changes)
-                return@test StateResponse(perp.state, changes)
-            },
-            """
-                {
-                    "wallet": {
-                        "account": {
-                            "tradingRewards": {
-                                "historical": {
-                                     "WEEKLY": [
-                                        {
-                                            "amount": 1.0,
-                                            "startedAt": "2023-12-03T00:00:00.000Z",
-                                            "period": "WEEKLY"
-                                         },
-                                         {
-                                            "amount": 124.03,
-                                            "startedAt": "2023-11-26T00:00:00.000Z",
-                                            "endedAt": "2023-12-03T00:00:00.000Z",
-                                            "period": "WEEKLY"
-                                         }
-                                     ]
-                                }
-                            }
-                        }
-                    }
-                }
-            """.trimIndent(),
-            {
-            },
-        )
-
-        test(
-            {
-                val changes = perp.historicalTradingRewards(
-                    mock.historicalTradingRewards.dailyCall,
-                    "DAILY",
-                )
-                perp.update(changes)
-                return@test StateResponse(perp.state, changes)
-            },
-            """
-                {
-                    "wallet": {
-                        "account": {
-                            "tradingRewards": {
-                                "historical": {
-                                    "WEEKLY": [
-                                        {   
-                                            "period": "WEEKLY"
-                                         },
-                                         {
-                                            "period": "WEEKLY"
-                                         }
-                                    ],
-                                     "DAILY": [
-                                        {
-                                            "amount": 0.184633506816819606,
-                                            "startedAt": "2024-01-29T00:00:00.000Z",
-                                            "endedAt": "2024-01-30T00:00:00.000Z",
-                                            "period": "DAILY"
-                                          },
-                                          {
-                                            "amount": 0.631910345674096029,
-                                            "startedAt": "2024-01-27T00:00:00.000Z",
-                                            "endedAt": "2024-01-28T00:00:00.000Z",
-                                            "period": "DAILY"
-                                          }
-                                     ]
-                                }
-                            }
-                        }
-                    }
-                }
-            """.trimIndent(),
-            {
-            },
-        )
-
-        test(
-            {
-                val changes = perp.historicalTradingRewards(
-                    mock.historicalTradingRewards.monthlyCall,
-                    "MONTHLY",
-                )
-                perp.update(changes)
-                return@test StateResponse(perp.state, changes)
-            },
-            """
-                {
-                    "wallet": {
-                        "account": {
-                            "tradingRewards": {
-                                "historical": {
-                                     "WEEKLY": [
-                                        {   
-                                            "period": "WEEKLY"
-                                         },
-                                         {
-                                            "period": "WEEKLY"
-                                         }
-                                     ],
-                                     "DAILY": [
-                                        {   
-                                            "period": "DAILY"
-                                         },
-                                         {
-                                            "period": "DAILY"
-                                         }
-                                     ],
-                                     "MONTHLY": [
-                                        {   
-                                            "amount": 1.00,
-                                            "startedAt": "2023-12-01T00:00:00.000Z",
-                                            "period": "MONTHLY"
-                                        },
-                                        {
-                                            "amount": 124.03,
-                                            "startedAt": "2023-11-01T00:00:00.000Z",
-                                            "endedAt": "2023-12-01T00:00:00.000Z",
-                                            "period": "MONTHLY"
-                                        }
-                                      ]
-                                }
-                            }
-                        }
-                    }
-                }
-            """.trimIndent(),
-            {
-            },
-        )
-
-        test(
-            {
-                val changes = perp.historicalTradingRewards(
-                    mock.historicalTradingRewards.monthlySecondCall,
-                    "MONTHLY",
-                )
-                perp.update(changes)
-                return@test StateResponse(perp.state, changes)
-            },
-            """
-                {
-                    "wallet": {
-                        "account": {
-                            "tradingRewards": {
-                                "historical": {
-                                     "WEEKLY": [
-                                        {
-                                            "period": "WEEKLY"
-                                         },
-                                         {
-                                            "period": "WEEKLY"
-                                         }
-                                     ],
-                                     "MONTHLY": [
-                                        {
-                                            "amount": 1.00,
-                                            "startedAt": "2023-12-01T00:00:00.000Z",
-                                            "period": "MONTHLY"
-                                        },
-                                        {
-                                            "amount": 124.03,
-                                            "startedAt": "2023-11-01T00:00:00.000Z",
-                                            "endedAt": "2023-12-01T00:00:00.000Z",
-                                            "period": "MONTHLY"
-                                        },
-                                        {
-                                            "amount": 100.0,
-                                            "startedAt": "2023-09-01T00:00:00.000Z",
-                                            "endedAt": "2023-10-01T00:00:00.000Z",
-                                            "period": "MONTHLY"
-                                         }
-                                      ]
-                                }
-                            }
-                        }
-                    }
-                }
-            """.trimIndent(),
-            {
-            },
-        )
     }
 }

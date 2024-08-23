@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.utils
+package exchange.stream.abacus.utils
 
 actual fun platformDebugLog(message: String) {
     console.log(message)

@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.tests.mock
+package exchange.stream.abacus.tests.mock
 
-import exchange.dydx.abacus.protocols.LocalizerProtocol
+import exchange.stream.abacus.protocols.LocalizerProtocol
 
 class LocalizerProtocolMock : LocalizerProtocol {
     var localizeCallCount = 0

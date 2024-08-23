@@ -21,6 +21,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class IndexerTimeResponse(
 
-    val iso: IndexerIsoString? = null,
-    val epoch: kotlin.Double? = null
+    val iso: IndexerIsoString,
+    val epoch: kotlin.Double
 )

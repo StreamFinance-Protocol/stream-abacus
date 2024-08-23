@@ -27,6 +27,6 @@ data class IndexerTransferBetweenResponse(
     val pageSize: kotlin.Int? = null,
     val totalResults: kotlin.Int? = null,
     val offset: kotlin.Int? = null,
-    val transfersSubset: kotlin.Array<IndexerTransferResponseObject>? = null,
-    val totalNetTransfers: kotlin.String? = null
+    val transfersSubset: kotlin.Array<IndexerTransferResponseObject>,
+    val totalNetTransfers: kotlin.String
 )

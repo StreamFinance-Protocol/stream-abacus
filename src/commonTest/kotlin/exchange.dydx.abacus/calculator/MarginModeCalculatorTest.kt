@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.calculator
+package exchange.stream.abacus.calculator
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

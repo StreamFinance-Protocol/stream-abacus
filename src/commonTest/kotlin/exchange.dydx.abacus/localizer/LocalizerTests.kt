@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.localizer
+package exchange.stream.abacus.localizer
 
-import exchange.dydx.abacus.payload.BaseTests
+import exchange.stream.abacus.payload.BaseTests
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

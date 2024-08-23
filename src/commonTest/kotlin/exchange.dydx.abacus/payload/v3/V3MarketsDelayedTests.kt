@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.payload.v3
+package exchange.stream.abacus.payload.v3
 
-import exchange.dydx.abacus.tests.extensions.loadTrades
+import exchange.stream.abacus.tests.extensions.loadTrades
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull

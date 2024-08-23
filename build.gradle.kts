@@ -51,7 +51,7 @@ allprojects {
     }
 }
 
-group = "exchange.dydx.abacus"
+group = "exchange.stream.abacus"
 version = "1.8.67b"
 
 repositories {
@@ -162,8 +162,8 @@ kotlin {
         // Specify the required Pod version here. Otherwise, the Gradle project version is used.
         // version = "1.0"
         summary = "Shared front-end and mobile logic written in Kotlin"
-        homepage = "https://github.com/dydxprotocol/v4-abacus"
-        source = "{ :git => 'git@github.com/dydxprotocol/v4-abacus.git' }"
+        homepage = "https://github.com/StreamFinance-Protocol/stream-abacus"
+        source = "{ :git => 'git@github.com/StreamFinance-Protocol/stream-abacus.git' }"
 
         // Optional properties
         // Configure the Pod name here instead of changing the Gradle project name
@@ -197,7 +197,7 @@ detekt {
 }
 
 npmPublish {
-    organization.set("dydxprotocol")
+    organization.set("StreamFinance-Protocol")
     readme.set(rootDir.resolve("README.md"))
     packages {
         named("js") {
@@ -225,7 +225,7 @@ publishing {
             val github_username = System.getenv("github_username")
             val github_token = System.getenv("github_token")
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/dydxprotocol/v4-abacus")
+            url = uri("https://maven.pkg.github.com/StreamFinance-Protocol/stream-abacus")
             credentials {
                 username = github_username
                 password = github_token

@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.processor.wallet.user
+package exchange.stream.abacus.processor.wallet.user
 
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.utils.Parser
 import indexer.models.chain.OnChainUserFeeTier
 import indexer.models.chain.OnChainUserStatsResponse
 import kotlin.test.Test

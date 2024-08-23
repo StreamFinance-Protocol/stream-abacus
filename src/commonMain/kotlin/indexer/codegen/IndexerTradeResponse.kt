@@ -26,5 +26,5 @@ data class IndexerTradeResponse(
     val pageSize: kotlin.Int? = null,
     val totalResults: kotlin.Int? = null,
     val offset: kotlin.Int? = null,
-    val trades: kotlin.Array<IndexerTradeResponseObject>? = null
+    val trades: kotlin.Array<IndexerTradeResponseObject>
 )

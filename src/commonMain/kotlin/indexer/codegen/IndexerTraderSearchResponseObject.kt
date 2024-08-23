@@ -23,8 +23,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class IndexerTraderSearchResponseObject(
 
-    val address: kotlin.String? = null,
-    val subaccountNumber: kotlin.Double? = null,
-    val subaccountId: kotlin.String? = null,
-    val username: kotlin.String? = null
+    val address: kotlin.String,
+    val subaccountNumber: kotlin.Double,
+    val subaccountId: kotlin.String,
+    val username: kotlin.String
 )

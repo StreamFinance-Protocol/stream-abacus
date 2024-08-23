@@ -21,6 +21,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class IndexerComplianceResponse(
 
-    val restricted: kotlin.Boolean? = null,
+    val restricted: kotlin.Boolean,
     val reason: kotlin.String? = null
 )

@@ -1,16 +1,16 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
-import exchange.dydx.abacus.state.app.adaptors.AbUrl
-import exchange.dydx.abacus.state.manager.EnvironmentEndpoints
-import exchange.dydx.abacus.state.manager.EnvironmentFeatureFlags
-import exchange.dydx.abacus.state.manager.TokenInfo
-import exchange.dydx.abacus.state.manager.V4Environment
-import exchange.dydx.abacus.state.manager.WalletConnect
-import exchange.dydx.abacus.state.manager.WalletConnectClient
-import exchange.dydx.abacus.state.manager.WalletConnectV1
-import exchange.dydx.abacus.state.manager.WalletConnectV2
-import exchange.dydx.abacus.state.manager.WalletConnection
-import exchange.dydx.abacus.state.manager.WalletSegue
+import exchange.stream.abacus.state.app.adaptors.AbUrl
+import exchange.stream.abacus.state.manager.EnvironmentEndpoints
+import exchange.stream.abacus.state.manager.EnvironmentFeatureFlags
+import exchange.stream.abacus.state.manager.TokenInfo
+import exchange.stream.abacus.state.manager.V4Environment
+import exchange.stream.abacus.state.manager.WalletConnect
+import exchange.stream.abacus.state.manager.WalletConnectClient
+import exchange.stream.abacus.state.manager.WalletConnectV1
+import exchange.stream.abacus.state.manager.WalletConnectV2
+import exchange.stream.abacus.state.manager.WalletConnection
+import exchange.stream.abacus.state.manager.WalletSegue
 import kollections.JsExport
 import kollections.toIMap
 
@@ -21,7 +21,6 @@ class AbacusMockData {
     internal val accountsChannel = AccountsChannelMock()
     internal val batchedSubaccountsChannel = SubaccountsChannelMock()
     internal val parentSubaccountsChannel = ParentSubaccountsChannelMock()
-    internal val historicalTradingRewards = HistoricalTradingRewardsMock()
     internal val fillsChannel = FillsMock()
     internal val transfersMock = TransfersMock()
     internal val user = UserMock()
@@ -46,7 +45,6 @@ class AbacusMockData {
     internal val squidV2AssetsMock = SquidV2AssetsMock()
     internal val squidV2RouteMock = SquidV2RouteMock()
     internal val localizationMock = LocalizationMock()
-    internal val launchIncentiveMock = LaunchIncentiveMock()
     internal val v4OnChainMock = V4OnChainMock()
     internal val v4ParentSubaccountsMock = V4ParentSubaccountsMock()
     internal val v4WithdrawalSafetyChecksMock = V4WithdrawalSafetyChecksMock()
@@ -58,7 +56,6 @@ class AbacusMockData {
         "dYdX-api",
         "dYdX Chain",
         "dYdX-logo.png",
-        "1704844800000",
         false,
         EnvironmentEndpoints(
             indexers = null,
@@ -91,13 +88,6 @@ class AbacusMockData {
         ),
         null,
         mapOf(
-            "chain" to TokenInfo(
-                "DYDX",
-                "adv4tnt",
-                18,
-                null,
-                "/currencies/dydx.png",
-            ),
             "usdc" to TokenInfo(
                 "USDC",
                 "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",

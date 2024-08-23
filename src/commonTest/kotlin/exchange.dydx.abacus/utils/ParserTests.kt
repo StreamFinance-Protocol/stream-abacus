@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.utils
+package exchange.stream.abacus.utils
 
 import com.ionspin.kotlin.bignum.decimal.BigDecimal
 import kotlinx.serialization.json.JsonPrimitive

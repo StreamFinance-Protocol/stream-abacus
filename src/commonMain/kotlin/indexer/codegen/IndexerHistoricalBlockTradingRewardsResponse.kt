@@ -20,5 +20,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class IndexerHistoricalBlockTradingRewardsResponse(
 
-    val rewards: kotlin.Array<IndexerHistoricalBlockTradingReward>? = null
+    val rewards: kotlin.Array<IndexerHistoricalBlockTradingReward>
 )
