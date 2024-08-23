@@ -2,7 +2,6 @@ package exchange.stream.abacus.state.manager.notification
 
 import exchange.stream.abacus.output.Notification
 import exchange.stream.abacus.protocols.ParserProtocol
-import exchange.stream.abacus.state.manager.V4Environment
 import exchange.stream.abacus.state.manager.notification.providers.OrderStatusChangesNotificationProvider
 import exchange.stream.abacus.state.model.TradingStateMachine
 import exchange.stream.abacus.utils.IMap
