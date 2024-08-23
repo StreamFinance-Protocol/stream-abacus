@@ -52,7 +52,7 @@ allprojects {
 }
 
 group = "exchange.stream.abacus"
-version = "1.8.67b"
+version = "1.8.68"
 
 repositories {
     google()

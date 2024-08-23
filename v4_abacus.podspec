@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'v4_abacus'
-    spec.version                  = '1.8.67b'
+    spec.version                  = '1.8.68'
     spec.homepage                 = 'https://github.com/StreamFinance-Protocol/stream-abacus'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
