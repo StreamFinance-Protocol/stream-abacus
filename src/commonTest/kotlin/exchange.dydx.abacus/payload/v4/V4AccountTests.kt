@@ -858,7 +858,6 @@ class V4AccountTests : V4BaseTests() {
                     NotificationsProvider(
                         perp,
                         uiImplementations,
-                        environment = mock.v4Environment,
                         Parser(),
                         JsonEncoder(),
                     )
@@ -921,7 +920,6 @@ class V4AccountTests : V4BaseTests() {
                     NotificationsProvider(
                         perp,
                         uiImplementations,
-                        environment = mock.v4Environment,
                         Parser(),
                         JsonEncoder(),
                     )

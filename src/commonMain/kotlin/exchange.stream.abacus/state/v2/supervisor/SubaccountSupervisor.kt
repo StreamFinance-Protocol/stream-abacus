@@ -165,7 +165,6 @@ internal class SubaccountSupervisor(
     private val notificationsProvider = NotificationsProvider(
         stateMachine,
         helper.uiImplementations,
-        helper.environment,
         helper.parser,
         helper.jsonEncoder,
         configs.useParentSubaccount,

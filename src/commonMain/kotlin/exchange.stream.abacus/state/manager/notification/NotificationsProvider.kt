@@ -20,7 +20,6 @@ interface NotificationsProviderProtocol {
 class NotificationsProvider(
     private val stateMachine: TradingStateMachine,
     private val uiImplementations: UIImplementations,
-    private val environment: V4Environment,
     private val parser: ParserProtocol,
     private val jsonEncoder: JsonEncoder,
     private val useParentSubaccount: Boolean = false,

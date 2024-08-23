@@ -1447,15 +1447,15 @@ internal class TradeInputCalculator(
         return parser.asString(parser.asNativeMap(options.firstOrNull())?.get("type"))
     }
 
-    private fun findMaxMakerRebate(feeTiers: List<Any>?): Double {
-        if (feeTiers.isNullOrEmpty()) return 0.0
+    // private fun findMaxMakerRebate(feeTiers: List<Any>?): Double {
+    //     if (feeTiers.isNullOrEmpty()) return 0.0
 
-        val smallestNegative = feeTiers.map { parser.asDouble(parser.value(it, "maker")) ?: 0.0 }
-            .filter { it < 0.0 }
-            .minOrNull()
+    //     val smallestNegative = feeTiers.map { parser.asDouble(parser.value(it, "maker")) ?: 0.0 }
+    //         .filter { it < 0.0 }
+    //         .minOrNull()
 
-        return abs(smallestNegative ?: 0.0)
-    }
+    //     return abs(smallestNegative ?: 0.0)
+    // }
 
     private fun summaryForType(
         trade: Map<String, Any>,
