@@ -11,12 +11,20 @@ jobs:
     #if: github.event.pull_request.merged == true
     runs-on: macos-latest
     steps:
+      - name: Check if ACTIONS_PAT is set
+        run: |
+          if [ -n "${{ secrets.ACTIONS_PAT }}" ]; then
+            echo "ACTIONS_PAT is set"
+          else
+            echo "ACTIONS_PAT is not set"
+          fi
+
       - name: checkout
         uses: actions/checkout@v4
         with:
           # Fetch full depth, otherwise the last step overwrites the last commit's parent, essentially removing the graph.
           fetch-depth: 0
-          token: ${{ secrets.ACTIONS_PAT || github.token }}
+          token: ${{ secrets.ACTIONS_PAT }}
           ref: ${{ github.head_ref }}
 
       - name: Bump version if needed
