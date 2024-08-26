@@ -1,9 +1,9 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.state.model.TradeInputField
-import exchange.dydx.abacus.state.model.trade
-import exchange.dydx.abacus.state.model.tradeInMarket
-import exchange.dydx.abacus.tests.extensions.loadOrderbook
+import exchange.stream.abacus.state.model.TradeInputField
+import exchange.stream.abacus.state.model.trade
+import exchange.stream.abacus.state.model.tradeInMarket
+import exchange.stream.abacus.tests.extensions.loadOrderbook
 import kotlin.test.Test
 
 class V4NoAccountTradeInputTests : V4BaseTests() {

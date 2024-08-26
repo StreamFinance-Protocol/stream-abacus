@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.app.manager
+package exchange.stream.abacus.app.manager
 
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.utils.Parser
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 

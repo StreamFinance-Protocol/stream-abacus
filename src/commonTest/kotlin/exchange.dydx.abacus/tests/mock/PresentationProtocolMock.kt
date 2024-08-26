@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.tests.mock
+package exchange.stream.abacus.tests.mock
 
-import exchange.dydx.abacus.protocols.PresentationProtocol
-import exchange.dydx.abacus.protocols.Toast
+import exchange.stream.abacus.protocols.PresentationProtocol
+import exchange.stream.abacus.protocols.Toast
 
 class PresentationProtocolMock : PresentationProtocol {
     var showToastCallCount = 0

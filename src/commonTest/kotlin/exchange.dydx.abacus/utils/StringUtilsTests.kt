@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.utils
+package exchange.stream.abacus.utils
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -6,9 +6,9 @@ import kotlin.test.assertEquals
 class StringUtilsTests {
     @Test
     fun testAddressConversion() {
-        val dydxAddress = "dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art"
+        val streamAddress = "dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art"
         val nobleAddress = "noble14zzueazeh0hj67cghhf9jypslcf9sh2n4vp3mj"
-        assertEquals(nobleAddress, dydxAddress.toNobleAddress())
-        assertEquals(dydxAddress, nobleAddress?.toDydxAddress())
+        assertEquals(nobleAddress, streamAddress.toNobleAddress())
+        assertEquals(streamAddress, nobleAddress?.toStreamAddress())
     }
 }

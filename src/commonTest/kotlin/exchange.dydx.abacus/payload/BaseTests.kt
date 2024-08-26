@@ -1,75 +1,74 @@
-package exchange.dydx.abacus.payload
+package exchange.stream.abacus.payload
 
-import exchange.dydx.abacus.app.manager.TestChain
-import exchange.dydx.abacus.app.manager.TestFileSystem
-import exchange.dydx.abacus.app.manager.TestRest
-import exchange.dydx.abacus.app.manager.TestThreading
-import exchange.dydx.abacus.app.manager.TestTimer
-import exchange.dydx.abacus.app.manager.TestWebSocket
-import exchange.dydx.abacus.output.Asset
-import exchange.dydx.abacus.output.Configs
-import exchange.dydx.abacus.output.FeeDiscount
-import exchange.dydx.abacus.output.FeeTier
-import exchange.dydx.abacus.output.LaunchIncentivePoints
-import exchange.dydx.abacus.output.MarketCandle
-import exchange.dydx.abacus.output.MarketCandles
-import exchange.dydx.abacus.output.MarketConfigs
-import exchange.dydx.abacus.output.MarketHistoricalFunding
-import exchange.dydx.abacus.output.MarketOrderbook
-import exchange.dydx.abacus.output.MarketPerpetual
-import exchange.dydx.abacus.output.MarketTrade
-import exchange.dydx.abacus.output.NetworkConfigs
-import exchange.dydx.abacus.output.OrderbookLine
-import exchange.dydx.abacus.output.PerpetualMarket
-import exchange.dydx.abacus.output.PerpetualMarketSummary
-import exchange.dydx.abacus.output.PerpetualMarketType
-import exchange.dydx.abacus.output.PerpetualState
-import exchange.dydx.abacus.output.TradeStatesWithDoubleValues
-import exchange.dydx.abacus.output.TradeStatesWithStringValues
-import exchange.dydx.abacus.output.User
-import exchange.dydx.abacus.output.Wallet
-import exchange.dydx.abacus.output.account.Account
-import exchange.dydx.abacus.output.account.Subaccount
-import exchange.dydx.abacus.output.account.SubaccountFill
-import exchange.dydx.abacus.output.account.SubaccountFundingPayment
-import exchange.dydx.abacus.output.account.SubaccountHistoricalPNL
-import exchange.dydx.abacus.output.account.SubaccountOrder
-import exchange.dydx.abacus.output.account.SubaccountPendingPosition
-import exchange.dydx.abacus.output.account.SubaccountPosition
-import exchange.dydx.abacus.output.account.SubaccountTransfer
-import exchange.dydx.abacus.output.input.ClosePositionInput
-import exchange.dydx.abacus.output.input.ClosePositionInputSize
-import exchange.dydx.abacus.output.input.Input
-import exchange.dydx.abacus.output.input.MarginMode
-import exchange.dydx.abacus.output.input.OrderbookUsage
-import exchange.dydx.abacus.output.input.ReceiptLine
-import exchange.dydx.abacus.output.input.SelectionOption
-import exchange.dydx.abacus.output.input.TradeInput
-import exchange.dydx.abacus.output.input.TradeInputBracket
-import exchange.dydx.abacus.output.input.TradeInputBracketSide
-import exchange.dydx.abacus.output.input.TradeInputGoodUntil
-import exchange.dydx.abacus.output.input.TradeInputMarketOrder
-import exchange.dydx.abacus.output.input.TradeInputOptions
-import exchange.dydx.abacus.output.input.TradeInputPrice
-import exchange.dydx.abacus.output.input.TradeInputSize
-import exchange.dydx.abacus.output.input.TradeInputSummary
-import exchange.dydx.abacus.protocols.LocalizerProtocol
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.app.helper.DynamicLocalizer
-import exchange.dydx.abacus.state.internalstate.InternalAccountState
-import exchange.dydx.abacus.state.internalstate.InternalState
-import exchange.dydx.abacus.state.internalstate.InternalSubaccountState
-import exchange.dydx.abacus.state.model.PerpTradingStateMachine
-import exchange.dydx.abacus.state.model.TradingStateMachine
-import exchange.dydx.abacus.tests.payloads.AbacusMockData
-import exchange.dydx.abacus.utils.IList
-import exchange.dydx.abacus.utils.IOImplementations
-import exchange.dydx.abacus.utils.Numeric
-import exchange.dydx.abacus.utils.Parser
-import exchange.dydx.abacus.utils.ServerTime
-import exchange.dydx.abacus.utils.UIImplementations
-import exchange.dydx.abacus.utils.satisfies
-import exchange.dydx.abacus.utils.toJsonPrettyPrint
+import exchange.stream.abacus.app.manager.TestChain
+import exchange.stream.abacus.app.manager.TestFileSystem
+import exchange.stream.abacus.app.manager.TestRest
+import exchange.stream.abacus.app.manager.TestThreading
+import exchange.stream.abacus.app.manager.TestTimer
+import exchange.stream.abacus.app.manager.TestWebSocket
+import exchange.stream.abacus.output.Asset
+import exchange.stream.abacus.output.Configs
+import exchange.stream.abacus.output.FeeDiscount
+import exchange.stream.abacus.output.FeeTier
+import exchange.stream.abacus.output.MarketCandle
+import exchange.stream.abacus.output.MarketCandles
+import exchange.stream.abacus.output.MarketConfigs
+import exchange.stream.abacus.output.MarketHistoricalFunding
+import exchange.stream.abacus.output.MarketOrderbook
+import exchange.stream.abacus.output.MarketPerpetual
+import exchange.stream.abacus.output.MarketTrade
+import exchange.stream.abacus.output.NetworkConfigs
+import exchange.stream.abacus.output.OrderbookLine
+import exchange.stream.abacus.output.PerpetualMarket
+import exchange.stream.abacus.output.PerpetualMarketSummary
+import exchange.stream.abacus.output.PerpetualMarketType
+import exchange.stream.abacus.output.PerpetualState
+import exchange.stream.abacus.output.TradeStatesWithDoubleValues
+import exchange.stream.abacus.output.TradeStatesWithStringValues
+import exchange.stream.abacus.output.User
+import exchange.stream.abacus.output.Wallet
+import exchange.stream.abacus.output.account.Account
+import exchange.stream.abacus.output.account.Subaccount
+import exchange.stream.abacus.output.account.SubaccountFill
+import exchange.stream.abacus.output.account.SubaccountFundingPayment
+import exchange.stream.abacus.output.account.SubaccountHistoricalPNL
+import exchange.stream.abacus.output.account.SubaccountOrder
+import exchange.stream.abacus.output.account.SubaccountPendingPosition
+import exchange.stream.abacus.output.account.SubaccountPosition
+import exchange.stream.abacus.output.account.SubaccountTransfer
+import exchange.stream.abacus.output.input.ClosePositionInput
+import exchange.stream.abacus.output.input.ClosePositionInputSize
+import exchange.stream.abacus.output.input.Input
+import exchange.stream.abacus.output.input.MarginMode
+import exchange.stream.abacus.output.input.OrderbookUsage
+import exchange.stream.abacus.output.input.ReceiptLine
+import exchange.stream.abacus.output.input.SelectionOption
+import exchange.stream.abacus.output.input.TradeInput
+import exchange.stream.abacus.output.input.TradeInputBracket
+import exchange.stream.abacus.output.input.TradeInputBracketSide
+import exchange.stream.abacus.output.input.TradeInputGoodUntil
+import exchange.stream.abacus.output.input.TradeInputMarketOrder
+import exchange.stream.abacus.output.input.TradeInputOptions
+import exchange.stream.abacus.output.input.TradeInputPrice
+import exchange.stream.abacus.output.input.TradeInputSize
+import exchange.stream.abacus.output.input.TradeInputSummary
+import exchange.stream.abacus.protocols.LocalizerProtocol
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.app.helper.DynamicLocalizer
+import exchange.stream.abacus.state.internalstate.InternalAccountState
+import exchange.stream.abacus.state.internalstate.InternalState
+import exchange.stream.abacus.state.internalstate.InternalSubaccountState
+import exchange.stream.abacus.state.model.PerpTradingStateMachine
+import exchange.stream.abacus.state.model.TradingStateMachine
+import exchange.stream.abacus.tests.payloads.AbacusMockData
+import exchange.stream.abacus.utils.IList
+import exchange.stream.abacus.utils.IOImplementations
+import exchange.stream.abacus.utils.Numeric
+import exchange.stream.abacus.utils.Parser
+import exchange.stream.abacus.utils.ServerTime
+import exchange.stream.abacus.utils.UIImplementations
+import exchange.stream.abacus.utils.satisfies
+import exchange.stream.abacus.utils.toJsonPrettyPrint
 import kollections.toIMap
 import kotlinx.datetime.Instant
 import kotlinx.serialization.json.Json
@@ -871,18 +870,6 @@ open class BaseTests(
         // Not needed for v4
     }
 
-    private fun verifyLaunchIncentivePointsState(
-        data: Map<String, Any>?,
-        obj: LaunchIncentivePoints?,
-        trace: String
-    ) {
-        if (data != null) {
-            assertNotNull(obj)
-        } else {
-            assertNull(obj)
-        }
-    }
-
     internal open fun verifyAccountState(
         data: Map<String, Any>?,
         state: InternalAccountState?,
@@ -909,11 +896,6 @@ open class BaseTests(
                     parser.asNativeMap(data["groupedSubaccounts"]),
                     obj.groupedSubaccounts,
                     "$trace.groupedSubaccounts",
-                )
-                verifyLaunchIncentivePointsState(
-                    parser.asNativeMap(data["launchIncentivePoints"]),
-                    obj.launchIncentivePoints,
-                    "$trace.launchIncentivePoints",
                 )
             } else {
                 assertNull(obj)

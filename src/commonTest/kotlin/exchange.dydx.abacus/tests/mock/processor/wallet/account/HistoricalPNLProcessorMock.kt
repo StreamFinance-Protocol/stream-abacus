@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.tests.mock.processor.wallet.account
+package exchange.stream.abacus.tests.mock.processor.wallet.account
 
-import exchange.dydx.abacus.output.account.SubaccountHistoricalPNL
-import exchange.dydx.abacus.processor.wallet.account.HistoricalPNLProcessorProtocol
+import exchange.stream.abacus.output.account.SubaccountHistoricalPNL
+import exchange.stream.abacus.processor.wallet.account.HistoricalPNLProcessorProtocol
 import indexer.codegen.IndexerPnlTicksResponseObject
 
 internal class HistoricalPNLProcessorMock : HistoricalPNLProcessorProtocol {

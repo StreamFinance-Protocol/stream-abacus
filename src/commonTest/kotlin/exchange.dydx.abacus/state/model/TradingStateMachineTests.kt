@@ -1,8 +1,8 @@
-package exchange.dydx.abacus.state.model
+package exchange.stream.abacus.state.model
 
-import exchange.dydx.abacus.processor.router.skip.SkipProcessor
-import exchange.dydx.abacus.processor.router.squid.SquidProcessor
-import exchange.dydx.abacus.state.manager.StatsigConfig
+import exchange.stream.abacus.processor.router.skip.SkipProcessor
+import exchange.stream.abacus.processor.router.squid.SquidProcessor
+import exchange.stream.abacus.state.manager.StatsigConfig
 import kotlin.test.Test
 import kotlin.test.assertTrue
 

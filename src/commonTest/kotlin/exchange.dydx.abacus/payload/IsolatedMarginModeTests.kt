@@ -1,12 +1,12 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.calculator.MarginCalculator
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.model.ClosePositionInputField
-import exchange.dydx.abacus.state.model.TradeInputField
-import exchange.dydx.abacus.state.model.closePosition
-import exchange.dydx.abacus.state.model.trade
-import exchange.dydx.abacus.state.model.tradeInMarket
+import exchange.stream.abacus.calculator.MarginCalculator
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.model.ClosePositionInputField
+import exchange.stream.abacus.state.model.TradeInputField
+import exchange.stream.abacus.state.model.closePosition
+import exchange.stream.abacus.state.model.trade
+import exchange.stream.abacus.state.model.tradeInMarket
 import kotlin.test.BeforeTest
 import kotlin.test.DefaultAsserter.assertTrue
 import kotlin.test.Test

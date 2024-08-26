@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.payload.utils
+package exchange.stream.abacus.payload.utils
 
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.utils.Parser
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

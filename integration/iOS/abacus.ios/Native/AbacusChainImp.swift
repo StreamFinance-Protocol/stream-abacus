@@ -8,7 +8,7 @@
 import Foundation
 import Abacus
 
-final public class AbacusChainImp: Abacus.DYDXChainTransactionsProtocol {
+final public class AbacusChainImp: Abacus.StreamChainTransactionsProtocol {
     public func connectNetwork(indexerUrl: String, indexerSocketUrl: String, validatorUrl: String, chainId: String, faucetUrl: String?, callback: @escaping (String?) -> Void) {
         CosmoJavascript.shared.connectNetwork(chainId: chainId, validatorUrl: validatorUrl, indexerUrl: indexerUrl, indexerSocketUrl: indexerSocketUrl, faucetUrl: faucetUrl) { result in
             callback(result as? String)

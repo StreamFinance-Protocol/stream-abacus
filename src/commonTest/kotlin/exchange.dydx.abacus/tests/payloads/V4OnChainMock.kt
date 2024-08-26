@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 @Suppress("PropertyName")
 internal class V4OnChainMock {
@@ -168,32 +168,5 @@ internal class V4OnChainMock {
         {"denom":"ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5","amount":"110"},
         {"denom":"dv4tnt","amount":"1220"}
        ]
-    """.trimIndent()
-
-    internal val account_delegations = """
-       {
-          "delegationResponses": [
-            {
-              "delegation": {
-                "delegatorAddress": "REDACTED",
-                "validatorAddress": "REDACTED",
-                "shares": "1001000000000000000000000"
-              },
-              "balance": { "denom": "dv4tnt", "amount": "1001000" }
-            },
-            {
-              "delegation": {
-                "delegatorAddress": "REDACTED",
-                "validatorAddress": "REDACTED",
-                "shares": "1000000000000000000000000"
-              },
-              "balance": { "denom": "dv4tnt", "amount": "1000000" }
-            }
-          ],
-          "pagination": {
-            "nextKey": "",
-            "total": ""
-          }
-        }
     """.trimIndent()
 }

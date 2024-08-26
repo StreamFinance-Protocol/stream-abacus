@@ -1,10 +1,10 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.model.TradeInputField
-import exchange.dydx.abacus.state.model.trade
-import exchange.dydx.abacus.state.model.tradeInMarket
-import exchange.dydx.abacus.tests.extensions.loadv4Accounts
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.model.TradeInputField
+import exchange.stream.abacus.state.model.trade
+import exchange.stream.abacus.state.model.tradeInMarket
+import exchange.stream.abacus.tests.extensions.loadv4Accounts
 import kotlin.test.Test
 
 open class V4TradeInputTests : V4BaseTests() {
@@ -188,7 +188,6 @@ open class V4TradeInputTests : V4BaseTests() {
                         "POSITION_MARGIN",
                         "POSITION_LEVERAGE",
                         "FEE",
-                        "REWARD"
                     ]
                 }
             }

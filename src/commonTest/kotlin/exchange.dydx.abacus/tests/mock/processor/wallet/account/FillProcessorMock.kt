@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.tests.mock.processor.wallet.account
+package exchange.stream.abacus.tests.mock.processor.wallet.account
 
-import exchange.dydx.abacus.output.account.SubaccountFill
-import exchange.dydx.abacus.processor.wallet.account.FillProcessorProtocol
+import exchange.stream.abacus.output.account.SubaccountFill
+import exchange.stream.abacus.processor.wallet.account.FillProcessorProtocol
 import indexer.codegen.IndexerFillResponseObject
 
 internal class FillProcessorMock : FillProcessorProtocol {

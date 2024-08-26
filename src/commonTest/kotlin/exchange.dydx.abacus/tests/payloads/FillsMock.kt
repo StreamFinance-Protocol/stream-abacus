@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 @Suppress("PropertyName")
 internal class FillsMock {
@@ -1412,12 +1412,7 @@ internal class FillsMock {
                         "createdAtHeight": "77486",
                         "ticker": "ETH-USD"
                     }
-                ],
-                "tradingReward": {
-                    "tradingReward": "0.01",
-                    "createdAtHeight": "2501",
-                    "createdAt": "2023-08-09T20:11:00.000Z"
-                }
+                ]
             }
         }
     """.trimIndent()

@@ -1,9 +1,9 @@
-package exchange.dydx.abacus.payload
+package exchange.stream.abacus.payload
 
-import exchange.dydx.abacus.payload.v4.V4BaseTests
-import exchange.dydx.abacus.state.model.TradeInputField
-import exchange.dydx.abacus.state.model.trade
-import exchange.dydx.abacus.state.model.tradeInMarket
+import exchange.stream.abacus.payload.v4.V4BaseTests
+import exchange.stream.abacus.state.model.TradeInputField
+import exchange.stream.abacus.state.model.trade
+import exchange.stream.abacus.state.model.tradeInMarket
 import kotlin.test.Test
 
 class TradeInputOptionsTests : V4BaseTests() {
@@ -106,7 +106,7 @@ class TradeInputOptionsTests : V4BaseTests() {
                     "trade": {
                         "options": {
                             "needsSize": true,
-                            "needsLeverage": false,
+                            "needsLeverage": true,
                             "needsTriggerPrice": false,
                             "needsLimitPrice": true,
                             "needsTrailingPercent": false,

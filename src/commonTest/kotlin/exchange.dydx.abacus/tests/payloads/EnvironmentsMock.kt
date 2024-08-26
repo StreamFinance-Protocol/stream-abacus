@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 class EnvironmentsMock {
     internal val environments = """
@@ -42,7 +42,6 @@ class EnvironmentsMock {
                     "documentation":"https://v4-teacher.vercel.app/",
                     "community":"https://discord.com/invite/dydx",
                     "feedback":"https://docs.google.com/forms/d/e/1FAIpQLSezLsWCKvAYDEb7L-2O4wOON1T56xxro9A2Azvl6IxXHP_15Q/viewform",
-                    "launchIncentive":"https://dydx.exchange/v4-launch-incentive",
                     "complianceSupportEmail":"someemail@gmail.com"
                }
            },
@@ -71,9 +70,8 @@ class EnvironmentsMock {
               "dydxprotocol-staging":{
                  "name":"v4 Staging",
                  "ethereumChainId":"5",
-                 "dydxChainId":"dydxprotocol-testnet",
+                 "streamChainId":"dydxprotocol-testnet",
                  "squidIntegratorId": "dYdX-api",
-                 "rewardsHistoryStartDateMs": "1704844800000",
                  "isMainNet":false,
                  "endpoints":{
                     "indexers":[
@@ -102,9 +100,8 @@ class EnvironmentsMock {
               "dydxprotocol-testnet":{
                  "name":"v4 Public Testnet",
                  "ethereumChainId":"5",
-                 "dydxChainId":"dydxprotocol-testnet",
+                 "streamChainId":"dydxprotocol-testnet",
                  "squidIntegratorId": "dYdX-api",
-                 "rewardsHistoryStartDateMs": "1704844800000",
                  "isMainNet":false,
                  "endpoints":{
                     "indexers":[

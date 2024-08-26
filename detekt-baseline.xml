@@ -619,7 +619,7 @@
     <ID>ReturnCount:StateManagerConfigs.kt$StateManagerConfigs$fun privateApiUrl(type: String): String?</ID>
     <ID>ReturnCount:StateManagerConfigs.kt$StateManagerConfigs$fun publicApiUrl(type: String): String?</ID>
     <ID>ReturnCount:StateManagerConfigs.kt$StateManagerConfigs$fun websocketUrl(): String?</ID>
-    <ID>ReturnCount:String+Utils.kt$fun String.toDydxAddress(): String?</ID>
+    <ID>ReturnCount:String+Utils.kt$fun String.toStreamAddress(): String?</ID>
     <ID>ReturnCount:String+Utils.kt$fun String.toNobleAddress(): String?</ID>
     <ID>ReturnCount:StringHelper.kt$StringHelper.Companion$private fun formatNumericString(string: String, decimals: Int? = null): String</ID>
     <ID>ReturnCount:SubaccountSupervisor.kt$SubaccountSupervisor$internal fun getChildSubaccountNumberForIsolatedMarginTrade(marketId: String): Int</ID>
@@ -719,7 +719,7 @@
     <ID>TooGenericExceptionThrown:MarketSupervisor.kt$MarketSupervisor$throw Exception("orderbook channel is null")</ID>
     <ID>TooGenericExceptionThrown:MarketSupervisor.kt$MarketSupervisor$throw Exception("trades channel is null")</ID>
     <ID>TooGenericExceptionThrown:MarketsSupervisor.kt$MarketsSupervisor$throw Exception("markets channel is null")</ID>
-    <ID>TooGenericExceptionThrown:NetworkHelper.kt$NetworkHelper$throw Exception("chain is not DYDXChainTransactionsProtocol")</ID>
+    <ID>TooGenericExceptionThrown:NetworkHelper.kt$NetworkHelper$throw Exception("chain is not StreamChainTransactionsProtocol")</ID>
     <ID>TooGenericExceptionThrown:NetworkHelper.kt$NetworkHelper$throw Exception("chain query is null")</ID>
     <ID>TooGenericExceptionThrown:OnboardingSupervisor.kt$OnboardingSupervisor$throw Exception("Transfer is null")</ID>
     <ID>TooGenericExceptionThrown:OnboardingSupervisor.kt$OnboardingSupervisor$throw Exception("address is null")</ID>
@@ -772,7 +772,7 @@
     <ID>TooGenericExceptionThrown:SubaccountSupervisor.kt$SubaccountSupervisor$throw Exception("type is null")</ID>
     <ID>TooGenericExceptionThrown:SubaccountSupervisor.kt$SubaccountSupervisor$throw Exception("usdcSize is null")</ID>
     <ID>TooGenericExceptionThrown:V4StateManagerAdaptor.kt$V4StateManagerAdaptor$throw Exception("candlesChannel is null")</ID>
-    <ID>TooGenericExceptionThrown:V4StateManagerAdaptor.kt$V4StateManagerAdaptor$throw Exception("chain is not DYDXChainTransactionsProtocol")</ID>
+    <ID>TooGenericExceptionThrown:V4StateManagerAdaptor.kt$V4StateManagerAdaptor$throw Exception("chain is not StreamChainTransactionsProtocol")</ID>
     <ID>TooGenericExceptionThrown:V4StateManagerAdaptor.kt$V4StateManagerAdaptor$throw Exception("chain query is null")</ID>
     <ID>UnusedParameter:AccountCalculator.kt$AccountCalculator$childSubaccountNumber: Int</ID>
     <ID>UnusedParameter:AccountInputValidator.kt$AccountInputValidator$parser: ParserProtocol</ID>

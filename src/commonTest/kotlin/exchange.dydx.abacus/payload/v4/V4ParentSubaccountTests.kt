@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.app.adaptors.AbUrl
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.app.adaptors.AbUrl
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 
@@ -24,7 +24,7 @@ class V4ParentSubaccountTests : V4BaseTests(true) {
     private fun loadSubaccountsWithRealData(): StateResponse {
         return test({
             perp.rest(
-                AbUrl.fromString("$testRestUrl/v4/addresses/dydxaddress"),
+                AbUrl.fromString("$testRestUrl/v4/addresses/streamaddress"),
                 mock.parentSubaccountsChannel.rest_response,
                 0,
                 null,

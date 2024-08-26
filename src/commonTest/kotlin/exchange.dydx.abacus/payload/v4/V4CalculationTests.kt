@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.payload.v4
+package exchange.stream.abacus.payload.v4
 
-import exchange.dydx.abacus.responses.StateResponse
-import exchange.dydx.abacus.state.app.adaptors.AbUrl
+import exchange.stream.abacus.responses.StateResponse
+import exchange.stream.abacus.state.app.adaptors.AbUrl
 import kotlin.test.Test
 
 class V4CalculationTests : V4BaseTests() {
@@ -61,19 +61,6 @@ class V4CalculationTests : V4BaseTests() {
                 {
                     "wallet": {
                         "account": {
-                            "tradingRewards": {
-                                "total": 2800.8,
-                                "blockRewards": [
-                                    {
-                                        "tradingReward": "0.02",
-                                        "createdAtHeight": "2422"
-                                    },
-                                    {
-                                        "tradingReward": "0.01",
-                                        "createdAtHeight": "2500"
-                                    }
-                                ]
-                            },
                             "subaccounts": {
                                 "0": {
                                     "equity": {

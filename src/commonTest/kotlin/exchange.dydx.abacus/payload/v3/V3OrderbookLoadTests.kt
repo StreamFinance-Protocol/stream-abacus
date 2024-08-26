@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.payload.v3
+package exchange.stream.abacus.payload.v3
 
-import exchange.dydx.abacus.utils.Logger
+import exchange.stream.abacus.utils.Logger
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 

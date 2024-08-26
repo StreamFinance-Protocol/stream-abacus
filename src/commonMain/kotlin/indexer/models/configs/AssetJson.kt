@@ -1,6 +1,6 @@
 package indexer.models.configs
 
-import exchange.dydx.abacus.utils.IList
+import exchange.stream.abacus.utils.IList
 import kotlinx.serialization.Serializable
 
 /**

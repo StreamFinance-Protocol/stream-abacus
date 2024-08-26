@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.processor.router.skip
+package exchange.stream.abacus.processor.router.skip
 
-import exchange.dydx.abacus.tests.payloads.SkipTrackMock
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.tests.payloads.SkipTrackMock
+import exchange.stream.abacus.utils.Parser
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

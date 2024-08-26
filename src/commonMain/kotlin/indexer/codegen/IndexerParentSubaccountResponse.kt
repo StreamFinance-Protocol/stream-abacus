@@ -24,9 +24,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class IndexerParentSubaccountResponse(
 
-    val address: kotlin.String? = null,
-    val parentSubaccountNumber: kotlin.Int? = null,
-    val equity: kotlin.String? = null,
-    val freeCollateral: kotlin.String? = null,
-    val childSubaccounts: kotlin.Array<IndexerSubaccountResponseObject>? = null
+    val address: kotlin.String,
+    val parentSubaccountNumber: kotlin.Int,
+    val equity: kotlin.String,
+    val freeCollateral: kotlin.String,
+    val childSubaccounts: kotlin.Array<IndexerSubaccountResponseObject>
 )

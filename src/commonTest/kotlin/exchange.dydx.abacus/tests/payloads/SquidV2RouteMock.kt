@@ -1,4 +1,4 @@
-package exchange.dydx.abacus.tests.payloads
+package exchange.stream.abacus.tests.payloads
 
 internal class SquidV2RouteMock {
     internal val payload = """

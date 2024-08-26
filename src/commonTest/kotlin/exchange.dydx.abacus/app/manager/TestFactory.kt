@@ -1,28 +1,28 @@
-package exchange.dydx.abacus.app.manager
+package exchange.stream.abacus.app.manager
 
-import exchange.dydx.abacus.output.Notification
-import exchange.dydx.abacus.output.PerpetualState
-import exchange.dydx.abacus.output.account.SubaccountOrder
-import exchange.dydx.abacus.protocols.DYDXChainTransactionsProtocol
-import exchange.dydx.abacus.protocols.FileLocation
-import exchange.dydx.abacus.protocols.FileSystemProtocol
-import exchange.dydx.abacus.protocols.LocalTimerProtocol
-import exchange.dydx.abacus.protocols.QueryType
-import exchange.dydx.abacus.protocols.RestCallback
-import exchange.dydx.abacus.protocols.RestProtocol
-import exchange.dydx.abacus.protocols.StateNotificationProtocol
-import exchange.dydx.abacus.protocols.ThreadingProtocol
-import exchange.dydx.abacus.protocols.ThreadingType
-import exchange.dydx.abacus.protocols.TimerProtocol
-import exchange.dydx.abacus.protocols.TransactionType
-import exchange.dydx.abacus.protocols.WebSocketProtocol
-import exchange.dydx.abacus.responses.ParsingError
-import exchange.dydx.abacus.state.changes.StateChanges
-import exchange.dydx.abacus.state.manager.ApiState
-import exchange.dydx.abacus.tests.payloads.AbacusMockData
-import exchange.dydx.abacus.utils.IList
-import exchange.dydx.abacus.utils.IMap
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.output.Notification
+import exchange.stream.abacus.output.PerpetualState
+import exchange.stream.abacus.output.account.SubaccountOrder
+import exchange.stream.abacus.protocols.FileLocation
+import exchange.stream.abacus.protocols.FileSystemProtocol
+import exchange.stream.abacus.protocols.LocalTimerProtocol
+import exchange.stream.abacus.protocols.QueryType
+import exchange.stream.abacus.protocols.RestCallback
+import exchange.stream.abacus.protocols.RestProtocol
+import exchange.stream.abacus.protocols.StateNotificationProtocol
+import exchange.stream.abacus.protocols.StreamChainTransactionsProtocol
+import exchange.stream.abacus.protocols.ThreadingProtocol
+import exchange.stream.abacus.protocols.ThreadingType
+import exchange.stream.abacus.protocols.TimerProtocol
+import exchange.stream.abacus.protocols.TransactionType
+import exchange.stream.abacus.protocols.WebSocketProtocol
+import exchange.stream.abacus.responses.ParsingError
+import exchange.stream.abacus.state.changes.StateChanges
+import exchange.stream.abacus.state.manager.ApiState
+import exchange.stream.abacus.tests.payloads.AbacusMockData
+import exchange.stream.abacus.utils.IList
+import exchange.stream.abacus.utils.IMap
+import exchange.stream.abacus.utils.Parser
 import kollections.iMutableListOf
 
 class TestFileSystem : FileSystemProtocol {
@@ -176,27 +176,6 @@ class TestRest() : RestProtocol {
                 ]
             """.trimIndent(),
         )
-        setResponse(
-            "https://dydx.exchange/v4-launch-incentive/query/ccar-perpetuals",
-            """
-                {
-                   "data":{
-                      "tradingSeasons":[
-                         {
-                            "startTimestamp":1701177710,
-                            "label":"1",
-                            "__typename":"TradingSeason"
-                         },
-                         {
-                            "startTimestamp":1704384000,
-                            "label":"2",
-                            "__typename":"TradingSeason"
-                         }
-                      ]
-                   }
-                }
-            """.trimIndent(),
-        )
     }
 
     override fun get(
@@ -307,7 +286,7 @@ class TestWebSocket : WebSocketProtocol {
     }
 }
 
-class TestChain : DYDXChainTransactionsProtocol {
+class TestChain : StreamChainTransactionsProtocol {
     var heightResponse: String? = null
     var placeOrderResponse: String? = null
     var cancelOrderResponse: String? = null

@@ -15,5 +15,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "v4-abacus"
+rootProject.name = "stream-abacus"
 

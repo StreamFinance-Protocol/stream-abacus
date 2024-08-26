@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.utils
+package exchange.stream.abacus.utils
 
-import exchange.dydx.abacus.tests.payloads.AbacusMockData
+import exchange.stream.abacus.tests.payloads.AbacusMockData
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

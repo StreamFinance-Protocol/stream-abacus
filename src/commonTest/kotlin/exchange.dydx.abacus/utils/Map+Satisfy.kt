@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.utils
+package exchange.stream.abacus.utils
 
-import exchange.dydx.abacus.protocols.ParserProtocol
+import exchange.stream.abacus.protocols.ParserProtocol
 import kotlinx.serialization.json.JsonNull
 import tickDecimals
 import kotlin.test.assertEquals

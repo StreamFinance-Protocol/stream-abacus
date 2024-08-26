@@ -1,8 +1,8 @@
-package exchange.dydx.abacus.processor.router.skip
+package exchange.stream.abacus.processor.router.skip
 
-import exchange.dydx.abacus.tests.payloads.SkipStatusMock
-import exchange.dydx.abacus.utils.Parser
-import exchange.dydx.abacus.utils.toJsonPrettyPrint
+import exchange.stream.abacus.tests.payloads.SkipStatusMock
+import exchange.stream.abacus.utils.Parser
+import exchange.stream.abacus.utils.toJsonPrettyPrint
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

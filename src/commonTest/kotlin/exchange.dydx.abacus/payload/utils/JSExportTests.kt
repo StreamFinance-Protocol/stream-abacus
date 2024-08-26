@@ -1,6 +1,6 @@
-package exchange.dydx.abacus.payload.utils
+package exchange.stream.abacus.payload.utils
 
-import exchange.dydx.abacus.utils.IList
+import exchange.stream.abacus.utils.IList
 import kollections.JsExport
 import kollections.iListOf
 import kotlinx.serialization.Serializable

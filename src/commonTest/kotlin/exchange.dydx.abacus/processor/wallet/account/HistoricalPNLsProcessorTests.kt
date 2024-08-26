@@ -1,7 +1,7 @@
-package exchange.dydx.abacus.processor.wallet.account
+package exchange.stream.abacus.processor.wallet.account
 
-import exchange.dydx.abacus.tests.mock.processor.wallet.account.HistoricalPNLProcessorMock
-import exchange.dydx.abacus.utils.Parser
+import exchange.stream.abacus.tests.mock.processor.wallet.account.HistoricalPNLProcessorMock
+import exchange.stream.abacus.utils.Parser
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
