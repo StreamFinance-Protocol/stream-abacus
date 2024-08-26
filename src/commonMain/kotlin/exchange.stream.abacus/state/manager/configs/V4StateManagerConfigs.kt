@@ -50,7 +50,7 @@ class V4StateManagerConfigs(
                       },
                       "configs":{
                          "markets":"/configs/markets.json"
-                      },
+                      }
                    },
                    "socket":"/v4/ws",
                    "channels":{
