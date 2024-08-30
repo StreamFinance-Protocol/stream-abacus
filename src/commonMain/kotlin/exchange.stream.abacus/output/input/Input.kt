@@ -1,5 +1,6 @@
 package exchange.stream.abacus.output.input
 
+import exchange.stream.abacus.output.Asset
 import exchange.stream.abacus.protocols.ParserProtocol
 import exchange.stream.abacus.state.internalstate.InternalState
 import exchange.stream.abacus.state.manager.V4Environment
@@ -15,7 +16,8 @@ enum class InputType(val rawValue: String) {
     CLOSE_POSITION("closePosition"),
     TRANSFER("transfer"),
     TRIGGER_ORDERS("triggerOrders"),
-    ADJUST_ISOLATED_MARGIN("adjustIsolatedMargin");
+    ADJUST_ISOLATED_MARGIN("adjustIsolatedMargin"),
+    SWAP("swap");
 
     companion object {
         operator fun invoke(rawValue: String?) =
@@ -32,6 +34,7 @@ data class Input(
     val transfer: TransferInput?,
     val triggerOrders: TriggerOrdersInput?,
     val adjustIsolatedMargin: AdjustIsolatedMarginInput?,
+    val swap: SwapInput?,
     val receiptLines: IList<ReceiptLine>?,
     val errors: IList<ValidationError>?,
     val childSubaccountErrors: IList<ValidationError>?
@@ -58,6 +61,8 @@ data class Input(
                     TriggerOrdersInput.create(existing?.triggerOrders, parser, parser.asMap(data["triggerOrders"]))
                 val adjustIsolatedMargin =
                     AdjustIsolatedMarginInput.create(existing?.adjustIsolatedMargin, parser, parser.asMap(data["adjustIsolatedMargin"]))
+                val swap =
+                    SwapInput.create(existing?.swap, parser, parser.asMap(data["swap"]))
                 val errors =
                     ValidationError.create(existing?.errors, parser, parser.asList(data["errors"]))
                 val childSubaccountErrors =
@@ -70,6 +75,7 @@ data class Input(
                     existing?.transfer !== transfer ||
                     existing?.triggerOrders !== triggerOrders ||
                     existing?.adjustIsolatedMargin !== adjustIsolatedMargin ||
+                    existing?.swap !== swap ||
                     existing?.receiptLines != receiptLines ||
                     existing?.errors != errors ||
                     existing?.childSubaccountErrors != childSubaccountErrors
@@ -81,6 +87,7 @@ data class Input(
                         transfer,
                         triggerOrders,
                         adjustIsolatedMargin,
+                        swap,
                         receiptLines,
                         errors,
                         childSubaccountErrors,

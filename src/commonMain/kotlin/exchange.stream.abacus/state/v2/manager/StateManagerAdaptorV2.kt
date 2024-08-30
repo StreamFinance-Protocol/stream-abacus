@@ -42,13 +42,13 @@ import exchange.stream.abacus.state.model.TradeInputField
 import exchange.stream.abacus.state.model.TradingStateMachine
 import exchange.stream.abacus.state.model.TransferInputField
 import exchange.stream.abacus.state.model.TriggerOrdersInputField
+import exchange.stream.abacus.state.model.SwapInputField
 import exchange.stream.abacus.state.model.tradeInMarket
+import exchange.stream.abacus.state.v2.supervisor.*
 import exchange.stream.abacus.state.v2.supervisor.AccountsSupervisor
-import exchange.stream.abacus.state.v2.supervisor.AppConfigsV2
 import exchange.stream.abacus.state.v2.supervisor.ConnectionDelegate
 import exchange.stream.abacus.state.v2.supervisor.ConnectionsSupervisor
 import exchange.stream.abacus.state.v2.supervisor.MarketsSupervisor
-import exchange.stream.abacus.state.v2.supervisor.NetworkHelper
 import exchange.stream.abacus.state.v2.supervisor.OnboardingSupervisor
 import exchange.stream.abacus.state.v2.supervisor.SystemSupervisor
 import exchange.stream.abacus.state.v2.supervisor.accountAddress
@@ -576,6 +576,14 @@ internal class StateManagerAdaptorV2(
 
     internal fun adjustIsolatedMarginPayload(): HumanReadableSubaccountTransferPayload? {
         return accounts.adjustIsolatedMarginPayload()
+    }
+
+    internal fun swap(data: String?, type: SwapInputField?) {
+        accounts.swap(data, type)
+    }
+
+    internal fun changeSwapDirection() {
+        accounts.changeSwapDirection()
     }
 
     internal fun stopWatchingLastOrder() {

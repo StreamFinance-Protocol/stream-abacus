@@ -8,6 +8,7 @@ import exchange.stream.abacus.calculator.TradeCalculation
 import exchange.stream.abacus.calculator.TradeInputCalculator
 import exchange.stream.abacus.calculator.TransferInputCalculator
 import exchange.stream.abacus.calculator.TriggerOrdersInputCalculator
+import exchange.stream.abacus.calculator.SwapInputCalculator
 import exchange.stream.abacus.calculator.v2.AccountCalculatorV2
 import exchange.stream.abacus.output.Asset
 import exchange.stream.abacus.output.Configs
@@ -629,6 +630,10 @@ open class TradingStateMachine(
                         calculateAdjustIsolatedMargin(subaccountNumber)
                     }
 
+                    "swap" -> {
+                        calculateSwap(subaccountNumber)
+                    }
+
                     else -> {}
                 }
             }
@@ -759,6 +764,19 @@ open class TradingStateMachine(
         this.wallet = parser.asNativeMap(modified["wallet"])
         input?.safeSet("adjustIsolatedMargin", parser.asNativeMap(modified["adjustIsolatedMargin"]))
 
+        this.input = input
+    }
+
+
+    private fun calculateSwap(subaccountNumber: Int?) {
+        val input = this.input?.mutable()
+        val swap = parser.asNativeMap(input?.get("swap"))
+        val calculator = SwapInputCalculator(parser)
+        val params = mutableMapOf<String, Any>()
+        params.safeSet("markets", parser.asNativeMap(marketsSummary?.get("markets")))
+        params.safeSet("swap", swap)
+        val modifiedSwap = calculator.calculate(params)
+        input?.safeSet("swap", parser.asNativeMap(modifiedSwap))
         this.input = input
     }
 
@@ -923,7 +941,7 @@ open class TradingStateMachine(
                     // TODO: update price diffs based on price.input
                 }
 
-                "closePosition", "transfer" -> {
+                "closePosition", "transfer", "swap" -> {
                 }
             }
             modified.safeSet("receiptLines", calculateReceipt(modified))

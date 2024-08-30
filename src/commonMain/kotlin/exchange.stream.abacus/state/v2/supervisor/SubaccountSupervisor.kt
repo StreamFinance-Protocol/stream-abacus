@@ -42,13 +42,7 @@ import exchange.stream.abacus.state.manager.PlaceOrderRecord
 import exchange.stream.abacus.state.manager.TransactionParams
 import exchange.stream.abacus.state.manager.TransactionQueue
 import exchange.stream.abacus.state.manager.notification.NotificationsProvider
-import exchange.stream.abacus.state.model.AdjustIsolatedMarginInputField
-import exchange.stream.abacus.state.model.ClosePositionInputField
-import exchange.stream.abacus.state.model.TradeInputField
-import exchange.stream.abacus.state.model.TradingStateMachine
-import exchange.stream.abacus.state.model.TriggerOrdersInputField
-import exchange.stream.abacus.state.model.adjustIsolatedMargin
-import exchange.stream.abacus.state.model.closePosition
+import exchange.stream.abacus.state.model.*
 import exchange.stream.abacus.state.model.findOrder
 import exchange.stream.abacus.state.model.historicalPnl
 import exchange.stream.abacus.state.model.orderCanceled
@@ -57,8 +51,6 @@ import exchange.stream.abacus.state.model.receivedFills
 import exchange.stream.abacus.state.model.receivedSubaccountSubscribed
 import exchange.stream.abacus.state.model.receivedSubaccountsChanges
 import exchange.stream.abacus.state.model.receivedTransfers
-import exchange.stream.abacus.state.model.trade
-import exchange.stream.abacus.state.model.triggerOrders
 import exchange.stream.abacus.utils.AnalyticsUtils
 import exchange.stream.abacus.utils.CONDITIONAL_ORDER_FLAGS
 import exchange.stream.abacus.utils.GoodTil
@@ -500,6 +492,34 @@ internal class SubaccountSupervisor(
     ) {
         helper.ioImplementations.threading?.async(ThreadingType.abacus) {
             val stateResponse = stateMachine.trade(data, type, subaccountNumber)
+            helper.ioImplementations.threading?.async(ThreadingType.main) {
+                helper.stateNotification?.stateChanged(
+                    stateResponse.state,
+                    stateResponse.changes,
+                )
+            }
+        }
+    }
+
+    fun swap(
+        data: String?,
+        type: SwapInputField?,
+    ) {
+        helper.ioImplementations.threading?.async(ThreadingType.abacus) {
+            val stateResponse = stateMachine.swap(data, type, subaccountNumber)
+            helper.ioImplementations.threading?.async(ThreadingType.main) {
+                helper.stateNotification?.stateChanged(
+                    stateResponse.state,
+                    stateResponse.changes,
+                )
+            }
+        }
+    }
+
+
+    fun changeSwapDirection() {
+        helper.ioImplementations.threading?.async(ThreadingType.abacus) {
+            val stateResponse = stateMachine.changeSwapDirection(subaccountNumber)
             helper.ioImplementations.threading?.async(ThreadingType.main) {
                 helper.stateNotification?.stateChanged(
                     stateResponse.state,

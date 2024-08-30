@@ -36,6 +36,7 @@ import exchange.stream.abacus.state.model.ClosePositionInputField
 import exchange.stream.abacus.state.model.TradeInputField
 import exchange.stream.abacus.state.model.TransferInputField
 import exchange.stream.abacus.state.model.TriggerOrdersInputField
+import exchange.stream.abacus.state.model.SwapInputField
 import exchange.stream.abacus.state.v2.supervisor.AppConfigsV2
 import exchange.stream.abacus.utils.CoroutineTimer
 import exchange.stream.abacus.utils.DummyFormatter
@@ -439,6 +440,14 @@ class AsyncAbacusStateManagerV2(
 
     override fun adjustIsolatedMargin(data: String?, type: AdjustIsolatedMarginInputField?) {
         adaptor?.adjustIsolatedMargin(data, type)
+    }
+
+    override fun swap(data: String?, type: SwapInputField?) {
+        adaptor?.swap(data, type)
+    }
+
+    override fun changeSwapDirection() {
+        adaptor?.changeSwapDirection()
     }
 
     override fun isMarketValid(marketId: String?): Boolean {

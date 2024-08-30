@@ -9,6 +9,7 @@ import exchange.stream.abacus.state.model.ClosePositionInputField
 import exchange.stream.abacus.state.model.TradeInputField
 import exchange.stream.abacus.state.model.TransferInputField
 import exchange.stream.abacus.state.model.TriggerOrdersInputField
+import exchange.stream.abacus.state.model.SwapInputField
 import exchange.stream.abacus.utils.IList
 import kotlin.js.JsExport
 
@@ -40,7 +41,8 @@ interface AsyncAbacusStateManagerProtocol {
     fun transfer(data: String?, type: TransferInputField?)
     fun triggerOrders(data: String?, type: TriggerOrdersInputField?)
     fun adjustIsolatedMargin(data: String?, type: AdjustIsolatedMarginInputField?)
-
+    fun swap(data: String?, type: SwapInputField?)
+    fun changeSwapDirection()
     // helper functions
     fun isMarketValid(marketId: String?): Boolean
     fun transferStatus(
@@ -64,6 +66,8 @@ interface AsyncAbacusStateManagerProtocol {
     fun withdrawPayload(): HumanReadableWithdrawPayload?
     fun subaccountTransferPayload(): HumanReadableSubaccountTransferPayload?
     fun adjustIsolatedMarginPayload(): HumanReadableSubaccountTransferPayload?
+    // TODO: get swap payload
+    // fun swapPayload(): HumanReadableSwapPayload?
 
     // Commit changes with input objects
     fun commitPlaceOrder(callback: TransactionCallback): HumanReadablePlaceOrderPayload?
@@ -73,6 +77,8 @@ interface AsyncAbacusStateManagerProtocol {
     fun stopWatchingLastOrder()
     fun commitTransfer(callback: TransactionCallback)
     fun commitCCTPWithdraw(callback: TransactionCallback)
+    // TODO: commit swap
+    // fun commitSwap(callback: TransactionCallback)
 
     // Commit changes with params
     fun faucet(amount: Double, callback: TransactionCallback)

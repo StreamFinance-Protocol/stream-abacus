@@ -35,6 +35,7 @@ import exchange.stream.abacus.state.manager.utils.StreamAddress
 import exchange.stream.abacus.state.model.AdjustIsolatedMarginInputField
 import exchange.stream.abacus.state.model.ClosePositionInputField
 import exchange.stream.abacus.state.model.TradeInputField
+import exchange.stream.abacus.state.model.SwapInputField
 import exchange.stream.abacus.state.model.TradingStateMachine
 import exchange.stream.abacus.state.model.TriggerOrdersInputField
 import exchange.stream.abacus.state.model.account
@@ -989,6 +990,14 @@ internal val AccountSupervisor.notifications: IMap<String, Notification>
 
 internal fun AccountSupervisor.trade(data: String?, type: TradeInputField?) {
     subaccount?.trade(data, type)
+}
+
+internal fun AccountSupervisor.swap(data: String?, type: SwapInputField?) {
+    subaccount?.swap(data, type)
+}
+
+internal fun AccountSupervisor.changeSwapDirection() {
+    subaccount?.changeSwapDirection()
 }
 
 internal fun AccountSupervisor.closePosition(data: String?, type: ClosePositionInputField) {

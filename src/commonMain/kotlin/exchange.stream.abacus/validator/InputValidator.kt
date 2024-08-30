@@ -85,6 +85,10 @@ internal class InputValidator(
         TriggerOrdersInputValidator(localizer, formatter, parser),
     )
 
+    private val swapValidators = listOf<ValidatorProtocol>(
+        SwapInputValidator(localizer, formatter, parser),
+    )
+
     fun validate(
         subaccountNumber: Int?,
         wallet: Map<String, Any>?,
@@ -177,6 +181,7 @@ internal class InputValidator(
             "transfer" -> transferValidators
             "trade" -> tradeValidators
             "triggerOrders" -> triggerOrdersValidators
+            "swap" -> swapValidators
             else -> null
         }
     }
